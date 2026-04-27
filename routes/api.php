@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\Chapter2\AgentPromptingController;
+use App\Http\Controllers\Api\Chapter2\ConversationalAgentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,4 +27,6 @@ Route::prefix('/chapter2')
     ->group(function () {
         Route::get('/hello-world', [AgentPromptingController::class, 'helloWorld'])->name('hello_world');
         Route::get('/prompt', [AgentPromptingController::class, 'promptWithInput'])->name('prompt_with_input');
+        Route::get('/start-conversation', [ConversationalAgentController::class, 'startConversation'])->name('start-conversation');
+        Route::get('/end-conversation', [ConversationalAgentController::class, 'continueConversation'])->name('continue-conversation');
     });
