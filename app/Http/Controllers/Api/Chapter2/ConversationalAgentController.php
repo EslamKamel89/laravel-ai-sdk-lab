@@ -36,7 +36,7 @@ class ConversationalAgentController extends Controller {
         return response()->json([
             'user_message' => $message,
             'conversation_id' => $response->conversationId,
-            'response_raw' => $response,
+            'response_json' => $response,
             'response_str' => (string) $response,
             'hint' => 'Save the conversation_id',
         ]);

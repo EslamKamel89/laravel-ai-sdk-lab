@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\Chapter2\AgentPromptingController;
 use App\Http\Controllers\Api\Chapter2\ConversationalAgentController;
+use App\Http\Controllers\Api\Chapter2\StructuredOutputController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,4 +30,6 @@ Route::prefix('/chapter2')
         Route::get('/prompt', [AgentPromptingController::class, 'promptWithInput'])->name('prompt_with_input');
         Route::get('/start-conversation', [ConversationalAgentController::class, 'startConversation'])->name('start-conversation');
         Route::get('/end-conversation', [ConversationalAgentController::class, 'continueConversation'])->name('continue-conversation');
+        Route::get('/sentiment-analyzer', [StructuredOutputController::class, 'analyzeSentiment'])->name('analyze-sentiment');
+        Route::get('/sentiment-analyzer-simple', [StructuredOutputController::class, 'simpleAnonymousSentimentAnalyzer'])->name('analyze-sentiment-simple');
     });
