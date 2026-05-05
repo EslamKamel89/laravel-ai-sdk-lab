@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\Chapter2\AgentConfigController;
 use App\Http\Controllers\Api\Chapter2\AgentPromptingController;
 use App\Http\Controllers\Api\Chapter2\ConversationalAgentController;
 use App\Http\Controllers\Api\Chapter2\StructuredOutputController;
@@ -32,4 +33,6 @@ Route::prefix('/chapter2')
         Route::get('/end-conversation', [ConversationalAgentController::class, 'continueConversation'])->name('continue-conversation');
         Route::get('/sentiment-analyzer', [StructuredOutputController::class, 'analyzeSentiment'])->name('analyze-sentiment');
         Route::get('/sentiment-analyzer-simple', [StructuredOutputController::class, 'simpleAnonymousSentimentAnalyzer'])->name('analyze-sentiment-simple');
+        Route::get('/creative-writer', [AgentConfigController::class, 'creativeWriter'])->name('creative-writer');
+        Route::get('/precise-extractor', [AgentConfigController::class, 'extractContent'])->name('precise-extractor');
     });
