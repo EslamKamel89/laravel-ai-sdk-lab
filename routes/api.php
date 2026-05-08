@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\Chapter2\AgentConfigController;
 use App\Http\Controllers\Api\Chapter2\AgentPromptingController;
 use App\Http\Controllers\Api\Chapter2\ConversationalAgentController;
 use App\Http\Controllers\Api\Chapter2\StructuredOutputController;
+use App\Http\Controllers\Api\Chapter3\ToolUsageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -35,4 +36,10 @@ Route::prefix('/chapter2')
         Route::get('/sentiment-analyzer-simple', [StructuredOutputController::class, 'simpleAnonymousSentimentAnalyzer'])->name('analyze-sentiment-simple');
         Route::get('/creative-writer', [AgentConfigController::class, 'creativeWriter'])->name('creative-writer');
         Route::get('/precise-extractor', [AgentConfigController::class, 'extractContent'])->name('precise-extractor');
+    });
+Route::prefix('/chapter3')
+    ->name('chapter3.')
+    ->middleware('auth:sanctum')
+    ->group(function () {
+        Route::get('/get-time', [ToolUsageController::class, 'getRequestedTime'])->name('get-time');
     });
