@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\Chapter2\AgentConfigController;
 use App\Http\Controllers\Api\Chapter2\AgentPromptingController;
 use App\Http\Controllers\Api\Chapter2\ConversationalAgentController;
 use App\Http\Controllers\Api\Chapter2\StructuredOutputController;
+use App\Http\Controllers\Api\Chapter3\SearchController;
 use App\Http\Controllers\Api\Chapter3\ToolUsageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -42,4 +43,5 @@ Route::prefix('/chapter3')
     ->middleware('auth:sanctum')
     ->group(function () {
         Route::get('/get-time', [ToolUsageController::class, 'getRequestedTime'])->name('get-time');
+        Route::get('/search', [SearchController::class, 'search'])->name('search');
     });
