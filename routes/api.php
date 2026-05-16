@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\Chapter2\ConversationalAgentController;
 use App\Http\Controllers\Api\Chapter2\StructuredOutputController;
 use App\Http\Controllers\Api\Chapter3\SearchController;
 use App\Http\Controllers\Api\Chapter3\ToolUsageController;
+use App\Http\Controllers\Chapter3\WebFetchController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -44,4 +45,5 @@ Route::prefix('/chapter3')
     ->group(function () {
         Route::get('/get-time', [ToolUsageController::class, 'getRequestedTime'])->name('get-time');
         Route::get('/search', [SearchController::class, 'search'])->name('search');
+        Route::get('/page-analyzer', [WebFetchController::class, 'pageAnalyzer'])->name('page-analyzer');
     });
